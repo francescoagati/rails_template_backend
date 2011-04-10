@@ -1,0 +1,13 @@
+A rails template backend based on:
+
+https://github.com/josevalim/inherited_resources
+
+https://github.com/jellybob/activo-rails
+
+https://github.com/plataformatec/simple_form
+
+https://github.com/codez/render_inheritable
+
+for use
+
+rails new app -m path/to/template.rb

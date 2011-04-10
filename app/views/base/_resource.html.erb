@@ -1,0 +1,40 @@
+<% require 'cgi' %>
+  <%= semantic_attributes_for res do |attr| %>
+    <% attr.attributes  do |attr| %>
+    
+      <%controller.class.const_get(:FIELDS).each do |f| %>
+        <% if f[1][:type]=='association' %>
+         	<%= attr.attribute f[0], :label => f[1][:label] %>
+            <%= res.send(f[0]).map {|row| row.send(f[1][:view_value]) }.join(", ") %>
+		<% elsif f[1][:type]=='single_association'  %>
+			<%= attr.attribute(f[0], :label =>  f[1][:label] ) %>
+		<% else %>
+          <%= (attr.attribute f[0], :label => f[1][:label]) if f[1][:label]!=nil %>
+          <%= (attr.attribute f[0]) if f[1][:label]==nil %>
+          
+        <% end %>
+          
+      <% end %>
+      
+    
+       <%#= attr.attribute :name %>
+       <%#= attr.attribute :ecommerce_username %>
+       <%#= attr.attribute :ecommerce_password %>
+       <%#= attr.attribute :intestazione_fattura %>
+       <%#= attr.attribute :nr_delibera %>
+       <%#= attr.attribute :indirizzo %>
+       <%#= attr.attribute :cap %>
+       <%#= attr.attribute :localita %>
+       <%#= attr.attribute :provincia %>
+       <%#= attr.attribute :tel %>
+       <%#= attr.attribute :fax %>
+       <%#= attr.attribute :email %>
+       <%#= attr.attribute :partita_iva %>
+       <%#= attr.attribute :codice_fiscale %>
+       <%#= attr.attribute :limite_inviti %>
+       <%#= attr.attribute :check_for_first_order %>
+     
+    <% end %>
+    
+  <% end %>
+  

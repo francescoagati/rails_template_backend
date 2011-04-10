@@ -1,0 +1,15 @@
+<table class="table">
+  <tr>
+    <th>Titolo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% collection.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <%= render :partial => '_actions' , :locals => {:res => post} %>
+  </tr>
+<% end %>
+</table>

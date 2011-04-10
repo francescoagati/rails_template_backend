@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'secondary_navigation' %>
+
+<%#= breadcrumbs do |b|
+  b.item "Home", "ssss"
+  b.item "News", "sssssss"
+  b.item "News Item 3", "sssssss", :active => true
+end %>
+
+
+
+<%= render :partial => 'search' %>
+
+<%= render :partial => 'resources' %>
+<br />
+
+
+<% if !@readonly %>
+  <%= link_to 'New', new_resource_url %>
+<% end %>
+
+<div class="pagination">
+	<%= will_paginate collection %>
+</div>

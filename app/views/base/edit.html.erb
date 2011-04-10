@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'secondary_navigation' %>
+
+<%= render :partial => 'form', :locals => {:res => resource } %>
+
+<% if @readonly==nil %>
+<%= link_to 'Show', resource_url(resource) %> |
+<%= link_to 'Back', collection_url %>
+<% end %>

@@ -1,0 +1,39 @@
+
+<%= simple_form_for(resource, :url => get_url_form_resource  ) do |f| %>
+  
+  <%= f.error_notification %>
+
+    <%controller.class.const_get(:FIELDS).each do |fld| %>
+      <% if fld[1][:type]=='association' || fld[1][:type]=='single_association' %>
+        <%= f.association fld[0], :collection => fld[1][:collection].call, :label => fld[1][:label]  %>
+      <% else %>
+        <%= (f.input fld[0], :label => fld[1][:label]) if fld[1][:label]!=nil %>
+        <%= (f.input fld[0]) if fld[1][:label]==nil %>        
+      <% end %>
+      
+      
+    <% end %>
+
+  <div class="inputs">
+    <%#= f.input :name %>
+    <%#= f.input :ecommerce_username %>
+    <%#= f.input :ecommerce_password %>
+    <%#= f.input :intestazione_fattura %>
+    <%#= f.input :nr_delibera %>
+    <%#= f.input :indirizzo %>
+    <%#= f.input :cap %>
+    <%#= f.input :localita %>
+    <%#= f.input :provincia %>
+    <%#= f.input :tel %>
+    <%#= f.input :fax %>
+    <%#= f.input :email %>
+    <%#= f.input :partita_iva %>
+    <%#= f.input :codice_fiscale %>
+    <%#= f.input :limite_inviti %>
+    <%#= f.input :check_for_first_order %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

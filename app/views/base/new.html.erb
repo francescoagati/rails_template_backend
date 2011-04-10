@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'secondary_navigation' %>
+
+<%= render :partial => 'form', :locals => {:res => resource }  %>
+
+<% if @readonly==nil %>
+<%= link_to 'Back', collection_url %>
+<% end %>

@@ -1,0 +1,23 @@
+<%= secondary_navigation do |n|
+  
+  
+    case controller.action_name
+      when 'index'
+          n.item "Index", collection_url, :active => true
+          n.item "New", new_resource_url
+      when 'show'
+          n.item "Index", collection_url
+          n.item "Show", collection_url, :active => true
+          n.item "Edit", edit_resource_url
+      when 'edit'
+        n.item "Index", collection_url
+        n.item "Show", resource_url
+        n.item "Edit", edit_resource_url, :active => true
+      when 'new'
+        n.item "Index", collection_url
+        n.item "New", new_resource_url, :active => true
+
+    end
+  
+  
+end %>
